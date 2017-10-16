@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.operator_mapper">  
+
+<select id="getByWhere" resultType="entity.operator" parameterType="utils.SeachInfo">
+select * from operator ${where} ${sort} ${limit}
+</select>
+
+<select id="getByWhereSize" resultType="long" parameterType="utils.SeachInfo">
+select count(1) from operator ${where}
+</select>
+
+<insert id="insert" parameterType="entity.operator">
+insert into operator(account,pass,name,tel,lastdate,powers,status,comments) values(#{account},#{pass},#{name},#{tel},#{lastdate},#{powers},#{status},#{comments})
+</insert>
+
+<update id="update" parameterType="entity.operator">
+update operator set name=#{name},tel=#{tel},lastdate=#{lastdate},powers=#{powers},status=#{status},comments=#{comments} where id=#{id}
+</update>
+
+<update id="updatepass" parameterType="entity.operator">
+update operator set pass=#{pass} where id=#{id}
+</update>
+
+<delete id="delete" parameterType="int">
+delete from operator where id=#{id}
+</delete>
+
+<select id="getById" resultType="entity.operator" parameterType="int">
+select * from operator where id=#{id}
+</select>
+
+<select id="login" resultType="entity.operator" parameterType="entity.operator">
+select * from operator where account=#{account} and pass=#{pass}
+</select>
+
+<select id="getall" resultType="entity.operator" >
+select * from operator
+</select>
+</mapper>
