@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cosme:war">
+    <output-path>$PROJECT_DIR$/../cosme/target</output-path>
+    <root id="archive" name="cosme.war">
+      <element id="artifact" artifact-name="cosme:war exploded" />
+    </root>
+  </artifact>
+</component>
